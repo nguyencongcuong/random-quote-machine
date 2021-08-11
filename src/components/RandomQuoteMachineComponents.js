@@ -6,20 +6,25 @@ function RandomQuoteMachineComponent(props) {
     return (
         <div
             id="quote-box"
-            className="vw-100 vh-100 d-flex flex-column justify-content-center align-items-center text-center p-4"
+            className="vw-100 vh-100 d-flex flex-column justify-content-center p-4"
             style={{ background: props.background }}
         >
+
             <blockquote
                 id="text"
-                className="display-5 text-white p-4">
+                className="fs-5 text-light"
+                style={{ textAlign: "justify" }}
+            >
                 {props.text}
             </blockquote>
             <span
                 id="author"
-                className="text-light fst-italic">
+                className="d-block w-100 text-light text-end fst-italic"
+            >
                 {props.author}
             </span>
-            <div className="fixed-bottom text-light p-4">
+
+            <div className="fixed-bottom text-center text-light p-4">
                 <button
                     id="new-quote"
                     className="btn btn-danger text-light text-uppercase fw-bold p-4 m-1"
@@ -37,6 +42,7 @@ function RandomQuoteMachineComponent(props) {
                     <FaTwitter /> <span className="visually-hidden">Tweet</span>
                 </a>
             </div>
+
         </div>
     )
 }

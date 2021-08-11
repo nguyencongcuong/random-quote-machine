@@ -3,6 +3,7 @@ import RandomQuoteMachineComponent from "./RandomQuoteMachineComponents";
 import KeyboardEventHandler from 'react-keyboard-event-handler';
 import random from "../helpers/random";
 import randomColor from "../helpers/randomColor";
+import QuoteDB from "./RandomQuoteMachineData"
 
 function RandomQuoteMachine() {
 
@@ -22,15 +23,22 @@ function RandomQuoteMachine() {
     )
 
     const handleQuotes = () => {
-        fetch("https://type.fit/api/quotes")
-            .then(response => response.json())
-            .then(quoteData => {
-                const index = random(0, quoteData.length - 1)
-                setText(text => quoteData[index].text)
-                setAuthor(author => quoteData[index].author == null ? "Unknown" : quoteData[index].author)
-                setBackground(background => randomColor())
-            }) 
+        const index = random(0, QuoteDB.length - 1)
+        setText(text => QuoteDB[index].text)
+        setAuthor(author => QuoteDB[index].author == null ? "Unknown" : QuoteDB[index].author)
+        setBackground(background => randomColor())
     }
+
+    // const handleQuotes = () => {
+    //     fetch("https://type.fit/api/quotes")
+    //         .then(response => response.json())
+    //         .then(QuoteDB => {
+    //             const index = random(0, QuoteDB.length - 1)
+    //             setText(text => QuoteDB[index].text)
+    //             setAuthor(author => QuoteDB[index].author == null ? "Unknown" : QuoteDB[index].author)
+    //             setBackground(background => randomColor())
+    //         }) 
+    // }
 
     return (
 

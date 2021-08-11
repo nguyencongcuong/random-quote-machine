@@ -49,6 +49,13 @@ function RandomQuoteMachineComponent(props) {
                         >
                             <FaTwitter /> <span className="visually-hidden">Tweet</span>
                         </a>
+                        <button
+                            id="switch-lang"
+                            className="btn btn-warning text-light text-uppercase fw-bold p-4 m-1"
+                            onClick={props.handleLang}
+                        >
+                            {props.lang}
+                        </button>
                     </div>
                 </div>
             </div>
